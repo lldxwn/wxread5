@@ -2,7 +2,7 @@ name: wxread
 
 concurrency:
   group: ${{ github.workflow }} # 使用工作流名称作为并发组的key
-  cancel-in-progress: true    # 取消任何正在进行的相同并发组的工作流
+  cancel-in-progress: false    # 取消任何正在进行的相同并发组的工作流
 
 on:
   schedule:
@@ -43,14 +43,14 @@ jobs:
 
     - name: Run deployment script
       env:
-        WXREAD_CURL_BASH: ${{ secrets.WXREAD_CURL_BASH }}
-        PUSH_METHOD: ${{ secrets.PUSH_METHOD }}
-        PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-        WXPUSHER_SPT: ${{ secrets.WXPUSHER_SPT }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        SERVERCHAN_SPT:  ${{ secrets.SERVERCHAN_SPT }}
-        READ_NUM: ${{ vars.READ_NUM }}  # 使用 Repository Variables
+        WXREAD_CURL_BASH: ${{ secrets.WXREAD_CURL_BASH5 }}
+        PUSH_METHOD: ${{ secrets.PUSH_METHOD5 }}
+        PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN5 }}
+        WXPUSHER_SPT: ${{ secrets.WXPUSHER_SPT5 }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN5 }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID5 }}
+        SERVERCHAN_SPT:  ${{ secrets.SERVERCHAN_SPT5 }}
+        READ_NUM: ${{ vars.READ_NUM5 }}  # 使用 Repository Variables
 
       run: |
         python main.py
